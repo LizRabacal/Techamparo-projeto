@@ -10,6 +10,8 @@ import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
 import { AuthProvider } from "./context/auth";
+import { useTheme } from "next-themes";
+import { useLayoutEffect } from "react";
 
 export const metadata: Metadata = {
   title: {
@@ -34,6 +36,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { setTheme } = useTheme();
+  useLayoutEffect(() => {
+    setTheme('light')
+
+  }, [])
+
   return (
     <html suppressHydrationWarning lang="en">
       <head />
